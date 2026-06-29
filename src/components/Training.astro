@@ -1,0 +1,35 @@
+---
+const services = [
+  { title: "Personal Training", body: "One-on-one coaching toward your goals. Annual members get 4 complimentary sessions to start strong." },
+  { title: "Group Classes", body: "Coached group exercise sessions that keep training social, structured, and consistent." },
+  { title: "Vital Spark Chiropractic", body: "On-site chiropractic care to keep you moving, recovering, and training pain-free." },
+  { title: "Professional Portraits", body: "In-house professional photography — capture your progress and physique at its best." },
+];
+---
+<section class="section section--alt" id="train">
+  <div class="container">
+    <p class="kicker">Training & Services</p>
+    <h2>Coaching, Recovery & More</h2>
+    <div class="train__grid">
+      {services.map((s) => (
+        <article class="train__card">
+          <h3>{s.title}</h3>
+          <p>{s.body}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .train__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 36px; }
+  .train__card {
+    background: var(--charcoal);
+    border: 1px solid rgba(198,164,92,0.16);
+    border-left: 3px solid var(--gold);
+    border-radius: 10px; padding: 26px 24px;
+  }
+  .train__card h3 { color: var(--cream); }
+  .train__card p { color: var(--muted); margin: 0; font-size: 0.96rem; }
+  @media (max-width: 700px) { .train__grid { grid-template-columns: 1fr; } }
+</style>
