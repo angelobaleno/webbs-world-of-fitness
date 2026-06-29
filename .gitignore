@@ -1,0 +1,15 @@
+# dependencies
+node_modules/
+
+# Astro build output
+dist/
+.astro/
+
+# brainstorming visual companion
+.superpowers/
+
+# env / editor / OS
+.env
+.env.*
+.DS_Store
+Thumbs.db
