@@ -1,0 +1,36 @@
+---
+const links = [
+  { href: "#train", label: "Train" },
+  { href: "#membership", label: "Membership" },
+  { href: "#about", label: "About" },
+  { href: "#visit", label: "Visit" },
+];
+---
+<header class="nav" data-nav>
+  <div class="container nav__inner">
+    <a class="nav__logo" href="#top">WEBB'S <span>· World of Fitness</span></a>
+    <nav class="nav__links">
+      {links.map((l) => <a href={l.href}>{l.label}</a>)}
+    </nav>
+    <a class="btn-gold nav__cta" href="#membership">Join Today</a>
+  </div>
+</header>
+
+<style>
+  .nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(12, 10, 7, 0.85);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(198, 164, 92, 0.18);
+  }
+  .nav__inner { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .nav__logo { font-family: "Oswald", sans-serif; font-weight: 600; letter-spacing: 1px; color: var(--cream); }
+  .nav__logo span { color: var(--gold); font-weight: 500; }
+  .nav__links { display: flex; gap: 26px; font-size: 0.9rem; color: var(--muted); }
+  .nav__links a:hover { color: var(--cream); }
+  .nav__links a.is-active { color: var(--gold); }
+  @media (max-width: 760px) {
+    .nav__links { display: none; }
+    .nav__logo span { display: none; }
+  }
+</style>
