@@ -1,0 +1,36 @@
+---
+import { site } from '../data/site.ts';
+const year = new Date().getFullYear();
+---
+<footer class="footer">
+  <div class="container footer__inner">
+    <div>
+      <p class="footer__logo">WEBB'S <span>· World of Fitness</span></p>
+      <p class="footer__owners">Owned & operated by {site.owners}</p>
+    </div>
+    <div class="footer__col">
+      <h4>Hours</h4>
+      {site.hours.map((h) => <p>{h.days}: {h.time}</p>)}
+    </div>
+    <div class="footer__col">
+      <h4>Contact</h4>
+      <p><a href={site.phoneHref}>{site.phone}</a></p>
+      <p><a href={site.emailHref}>{site.email}</a></p>
+      <p>{site.address.full}</p>
+    </div>
+  </div>
+  <p class="footer__copy">© {year} {site.name}. All rights reserved.</p>
+</footer>
+
+<style>
+  .footer { background: #070603; border-top: 1px solid rgba(198,164,92,0.18); padding: 54px 0 26px; }
+  .footer__inner { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 32px; }
+  .footer__logo { font-family: "Oswald"; font-weight: 600; letter-spacing: 1px; color: var(--cream); margin: 0; }
+  .footer__logo span { color: var(--gold); }
+  .footer__owners { color: var(--muted); font-size: 0.9rem; }
+  .footer__col h4 { font-family: "Oswald"; text-transform: uppercase; color: var(--gold); font-size: 0.85rem; letter-spacing: 1px; margin: 0 0 10px; }
+  .footer__col p { color: var(--muted); font-size: 0.9rem; margin: 4px 0; }
+  .footer__col a:hover { color: var(--cream); }
+  .footer__copy { text-align: center; color: #6b6354; font-size: 0.8rem; margin: 40px 0 0; }
+  @media (max-width: 760px) { .footer__inner { grid-template-columns: 1fr; gap: 24px; } }
+</style>
