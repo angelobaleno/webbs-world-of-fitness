@@ -1007,9 +1007,12 @@ Expected: success.
 
 Run:
 ```bash
-for s in "412-798-2800" "101 Cypress Hill Drive" "webbsfitness@gmail.com" "Linda & Monty Webb" "Join Today" "All Levels Welcome"; do
+# Note: Astro HTML-escapes "&" in interpolated text, so the owners string
+# appears as "Linda &amp; Monty Webb" in dist — match it escaping-tolerantly.
+for s in "412-798-2800" "101 Cypress Hill Drive" "webbsfitness@gmail.com" "Join Today" "All Levels Welcome"; do
   grep -qi "$s" dist/index.html && echo "OK: $s" || echo "MISSING: $s"
 done
+grep -qiE "Linda (&|&amp;) Monty Webb" dist/index.html && echo "OK: owners" || echo "MISSING: owners"
 for bad in "free pass" "free trial" "free day"; do
   grep -qi "$bad" dist/index.html && echo "FORBIDDEN PRESENT: $bad" || echo "clean: $bad"
 done
