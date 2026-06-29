@@ -34,3 +34,24 @@ const links = [
     .nav__logo span { display: none; }
   }
 </style>
+
+<script>
+  const links = Array.from(document.querySelectorAll('[data-nav] a[href^="#"]'));
+  const map = new Map(
+    links
+      .map((a) => [a.getAttribute('href')?.slice(1), a])
+      .filter(([id]) => id && document.getElementById(id))
+  );
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          links.forEach((a) => a.classList.remove('is-active'));
+          map.get(entry.target.id)?.classList.add('is-active');
+        }
+      });
+    },
+    { rootMargin: '-45% 0px -50% 0px' }
+  );
+  map.forEach((_, id) => observer.observe(document.getElementById(id)));
+</script>
