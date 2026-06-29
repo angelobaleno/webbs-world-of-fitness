@@ -22,6 +22,11 @@ Membership prices in `src/data/site.ts` are **placeholders** — confirm real ra
 the gym before publishing.
 
 ## Deploy
-`npm run build` produces static files in `dist/`. Drag that folder to Netlify, or push
-the repo and connect it to Netlify / GitHub Pages / Vercel (build command `npm run build`,
-output dir `dist`).
+**Live:** https://angelobaleno.github.io/webbs-world-of-fitness/
+
+Auto-deploys to GitHub Pages on every push to `main` via
+`.github/workflows/deploy.yml` (builds with Astro, publishes `dist/`). No manual step.
+
+The site is served under the `/webbs-world-of-fitness` base path (set in
+`astro.config.mjs`). If Webb's ever adopts this on their own domain, set `site` to that
+domain and remove `base`, then the image paths resolve at the root automatically.
