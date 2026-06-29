@@ -21,33 +21,39 @@ export const site = {
   ],
   mapEmbed:
     "https://www.google.com/maps?q=101+Cypress+Hill+Drive,+Pittsburgh,+PA+15235&output=embed",
-  // Placeholder pricing — confirm real numbers with the gym before launch.
+  // Annual contract, billed monthly. No initiation or enrollment fees.
+  // Source: webbsworldoffitness.com/membership.
   plans: [
     {
-      name: "Monthly",
+      name: "Single",
       price: "$39",
       cadence: "/mo",
       features: ["Full gym & equipment access", "Cardio theater", "Group exercise classes"],
       highlight: false,
     },
     {
-      name: "Annual",
-      price: "$399",
-      cadence: "/yr",
-      features: [
-        "Everything in Monthly",
-        "4 free personal training sessions",
-        "Best value — two months free",
-      ],
-      highlight: true,
-    },
-    {
-      name: "Student",
-      price: "$29",
+      name: "Couple",
+      price: "$65",
       cadence: "/mo",
-      features: ["Full gym & equipment access", "Valid student ID required"],
+      features: ["Everything in Single, for two", "Both partners full access"],
       highlight: false,
     },
+    {
+      name: "Family",
+      price: "$85",
+      cadence: "/mo",
+      features: ["Everything in Single, your whole household", "Most value per person"],
+      highlight: false,
+    },
+  ],
+  // No-contract and student rates (also from the live membership page).
+  otherRates: [
+    { label: "Day Pass", price: "$10" },
+    { label: "One Week", price: "$25" },
+    { label: "One Month — no contract", price: "$56" },
+    { label: "One Month — Senior (65+)", price: "$35" },
+    { label: "Student — One Month", price: "$38" },
+    { label: "Student — Three Months", price: "$108" },
   ],
 };
 
