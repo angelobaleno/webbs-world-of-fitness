@@ -1,0 +1,35 @@
+---
+const features = [
+  "Full free-weight & machine floor",
+  "Olympic weightlifting platforms",
+  "Functional & strength training space",
+  "Cardio theater: treadmills, ellipticals, stair climbers & computerized bikes",
+];
+---
+<section class="section" id="facilities">
+  <div class="container fac">
+    <div class="fac__media">
+      <img src="/images/facility-weights.webp" alt="Weight training floor at Webb's World of Fitness" loading="lazy" />
+      <img src="/images/facility-cardio.webp" alt="Cardio theater at Webb's World of Fitness" loading="lazy" />
+    </div>
+    <div class="fac__copy">
+      <p class="kicker">Facilities & Equipment</p>
+      <h2>Everything You Need to Train Hard</h2>
+      <p class="fac__lead">From the squat rack to the cardio theater, the floor is built for real work and real results.</p>
+      <ul class="fac__list">
+        {features.map((f) => <li>{f}</li>)}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style>
+  .fac { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+  .fac__media { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .fac__media img { border-radius: 10px; height: 100%; min-height: 220px; object-fit: cover; background: var(--charcoal-2); }
+  .fac__lead { color: var(--muted); }
+  .fac__list { list-style: none; padding: 0; margin: 18px 0 0; }
+  .fac__list li { padding: 10px 0 10px 26px; border-bottom: 1px solid rgba(198,164,92,0.14); position: relative; }
+  .fac__list li::before { content: "▪"; color: var(--gold); position: absolute; left: 0; }
+  @media (max-width: 860px) { .fac { grid-template-columns: 1fr; gap: 28px; } }
+</style>
