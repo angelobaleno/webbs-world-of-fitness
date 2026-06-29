@@ -20,12 +20,24 @@ import { site } from '../data/site.ts';
       ))}
     </div>
 
-    <h3 class="mem__other-title">No-Contract & Student Rates</h3>
-    <ul class="mem__other">
-      {site.otherRates.map((r) => (
-        <li><span class="mem__other-label">{r.label}</span><span class="mem__other-price">{r.price}</span></li>
-      ))}
-    </ul>
+    <div class="mem__rates">
+      <div class="mem__rate-group">
+        <h3 class="mem__other-title">Day & Short-Term Passes</h3>
+        <ul class="mem__other">
+          {site.shortTermPasses.map((r) => (
+            <li><span class="mem__other-label">{r.label}</span><span class="mem__other-price">{r.price}</span></li>
+          ))}
+        </ul>
+      </div>
+      <div class="mem__rate-group">
+        <h3 class="mem__other-title">Senior & Student Rates</h3>
+        <ul class="mem__other">
+          {site.discountRates.map((r) => (
+            <li><span class="mem__other-label">{r.label}</span><span class="mem__other-price">{r.price}</span></li>
+          ))}
+        </ul>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -51,11 +63,12 @@ import { site } from '../data/site.ts';
   .mem__card ul { list-style: none; padding: 0; margin: 0 0 24px; }
   .mem__card li { color: var(--muted); padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.06); font-size: 0.92rem; }
   .mem__cta { width: 100%; }
-  .mem__other-title { margin: 56px 0 18px; color: var(--gold); font-size: 1rem; }
-  .mem__other { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px 28px; max-width: 860px; }
+  .mem__rates { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 56px; max-width: 760px; margin-top: 52px; }
+  .mem__other-title { margin: 0 0 6px; color: var(--gold); font-size: 1rem; }
+  .mem__other { list-style: none; padding: 0; margin: 0; }
   .mem__other li { display: flex; justify-content: space-between; gap: 16px; padding: 12px 2px; border-bottom: 1px solid rgba(198,164,92,0.14); }
   .mem__other-label { color: var(--muted); font-size: 0.92rem; }
   .mem__other-price { color: var(--cream); font-family: "Oswald", sans-serif; }
   @media (max-width: 820px) { .mem__grid { grid-template-columns: 1fr; } .mem__card.is-featured { transform: none; } }
-  @media (max-width: 640px) { .mem__other { grid-template-columns: 1fr; } }
+  @media (max-width: 640px) { .mem__rates { grid-template-columns: 1fr; gap: 4px; } }
 </style>

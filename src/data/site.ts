@@ -46,12 +46,15 @@ export const site = {
       highlight: false,
     },
   ],
-  // No-contract and student rates (also from the live membership page).
-  otherRates: [
+  // No-contract passes for a set period of time.
+  shortTermPasses: [
     { label: "Day Pass", price: "$10" },
     { label: "One Week", price: "$25" },
-    { label: "One Month — no contract", price: "$56" },
-    { label: "One Month — Senior (65+)", price: "$35" },
+    { label: "One Month", price: "$56" },
+  ],
+  // Discounted rates for seniors and students.
+  discountRates: [
+    { label: "Senior (65+) — One Month", price: "$35" },
     { label: "Student — One Month", price: "$38" },
     { label: "Student — Three Months", price: "$108" },
   ],
