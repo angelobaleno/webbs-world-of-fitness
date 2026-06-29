@@ -1,9 +1,44 @@
 ---
 import '../styles/global.css';
+import { site } from '../data/site.ts';
 const {
   title = "Webb's World of Fitness | Pittsburgh Gym",
   description = "Webb's World of Fitness — a Pittsburgh gym for natural bodybuilding, strength, and everyday fitness. All levels welcome.",
 } = Astro.props;
+
+const base = import.meta.env.BASE_URL;
+const ogImage = `${site.url}/og-image.jpg`;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "HealthClub",
+  name: site.name,
+  image: ogImage,
+  "@id": site.url,
+  url: site.url,
+  telephone: "+1-412-798-2800",
+  priceRange: "$$",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: site.address.street,
+    addressLocality: site.address.city,
+    addressRegion: site.address.state,
+    postalCode: site.address.zip,
+    addressCountry: "US",
+  },
+  openingHoursSpecification: site.hoursSpec.map((h) => ({
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: h.days,
+    opens: h.opens,
+    closes: h.closes,
+  })),
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: site.rating,
+    reviewCount: site.reviewCount,
+  },
+  sameAs: [site.facebook],
+};
 ---
 <!doctype html>
 <html lang="en">
@@ -12,12 +47,28 @@ const {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
+
+    <link rel="icon" type="image/png" sizes="32x32" href={`${base}/favicon-32.png`} />
+    <link rel="apple-touch-icon" href={`${base}/apple-touch-icon.png`} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={site.url} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content={site.name} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
       rel="stylesheet"
     />
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </head>
   <body>
     <slot />

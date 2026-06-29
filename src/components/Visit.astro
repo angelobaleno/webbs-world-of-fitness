@@ -7,6 +7,7 @@ import { site } from '../data/site.ts';
       <p class="kicker">Visit Webb's</p>
       <h2>Come Train With Us</h2>
       <p class="visit__addr">{site.address.street}<br />{site.address.city}, {site.address.state} {site.address.zip}</p>
+      <a class="visit__directions" href={site.directionsHref} target="_blank" rel="noopener">Get Directions →</a>
 
       <table class="visit__hours">
         {site.hours.map((h) => (
@@ -33,6 +34,8 @@ import { site } from '../data/site.ts';
 <style>
   .visit { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: stretch; }
   .visit__addr { color: var(--muted); font-size: 1.05rem; }
+  .visit__directions { display: inline-block; margin-top: 8px; color: var(--gold); font-size: 0.95rem; }
+  .visit__directions:hover { color: var(--cream); }
   .visit__hours { width: 100%; border-collapse: collapse; margin: 18px 0 24px; }
   .visit__hours th { text-align: left; font-weight: 500; color: var(--cream); padding: 9px 0; }
   .visit__hours td { text-align: right; color: var(--muted); padding: 9px 0; }

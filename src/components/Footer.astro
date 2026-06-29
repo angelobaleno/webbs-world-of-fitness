@@ -7,6 +7,7 @@ const year = new Date().getFullYear();
     <div>
       <p class="footer__logo">WEBB'S <span>· World of Fitness</span></p>
       <p class="footer__owners">Owned & operated by {site.owners}</p>
+      <a class="footer__social" href={site.facebook} target="_blank" rel="noopener">Follow us on Facebook →</a>
     </div>
     <div class="footer__col">
       <h4>Hours</h4>
@@ -28,6 +29,8 @@ const year = new Date().getFullYear();
   .footer__logo { font-family: "Oswald"; font-weight: 600; letter-spacing: 1px; color: var(--cream); margin: 0; }
   .footer__logo span { color: var(--gold); }
   .footer__owners { color: var(--muted); font-size: 0.9rem; }
+  .footer__social { display: inline-block; margin-top: 6px; color: var(--gold); font-size: 0.9rem; }
+  .footer__social:hover { color: var(--cream); }
   .footer__col h4 { font-family: "Oswald"; text-transform: uppercase; color: var(--gold); font-size: 0.85rem; letter-spacing: 1px; margin: 0 0 10px; }
   .footer__col p { color: var(--muted); font-size: 0.9rem; margin: 4px 0; }
   .footer__col a:hover { color: var(--cream); }
