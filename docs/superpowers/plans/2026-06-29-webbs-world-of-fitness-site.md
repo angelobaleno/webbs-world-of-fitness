@@ -262,7 +262,7 @@ git commit -m "feat: scaffold Astro project with base layout, tokens, and site d
 - Create: `public/images/` (downloaded image assets)
 
 **Interfaces:**
-- Produces: image files referenced by later components. Target names: `hero.jpg`, `facility-weights.jpg`, `facility-cardio.jpg`, `training.jpg`. If a real photo for a slot can't be fetched, leave that slot's file out and the consuming component falls back to a CSS gradient (handled per-component).
+- Produces: image files referenced by later components. Target names: `hero.webp`, `facility-weights.webp`, `facility-cardio.webp`, `training.webp` (the gym's CDN serves WebP bytes, so `.webp` is the correct extension). If a real photo for a slot can't be fetched, leave that slot's file out and the consuming component falls back to a CSS gradient (handled per-component).
 
 - [ ] **Step 1: Pull the live site HTML to discover image URLs**
 
@@ -423,7 +423,7 @@ import { site } from '../data/site.ts';
       var(--charcoal-2);
     background-image:
       linear-gradient(180deg, rgba(12,10,7,0.55) 0%, rgba(12,10,7,0.92) 100%),
-      url("/images/hero.jpg");
+      url("/images/hero.webp");
     background-size: cover;
     background-position: center;
   }
@@ -547,8 +547,8 @@ const features = [
 <section class="section" id="facilities">
   <div class="container fac">
     <div class="fac__media">
-      <img src="/images/facility-weights.jpg" alt="Weight training floor at Webb's World of Fitness" loading="lazy" />
-      <img src="/images/facility-cardio.jpg" alt="Cardio theater at Webb's World of Fitness" loading="lazy" />
+      <img src="/images/facility-weights.webp" alt="Weight training floor at Webb's World of Fitness" loading="lazy" />
+      <img src="/images/facility-cardio.webp" alt="Cardio theater at Webb's World of Fitness" loading="lazy" />
     </div>
     <div class="fac__copy">
       <p class="kicker">Facilities & Equipment</p>
