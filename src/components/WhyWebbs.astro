@@ -1,0 +1,35 @@
+---
+const points = [
+  { title: "Serious Iron", body: "A full weight-training floor built for real lifting — free weights, Olympic platforms, and the equipment to back any program." },
+  { title: "Expert Coaching", body: "Personalized programs for weight loss, rehab, flexibility, functional strength, Olympic lifting, and natural bodybuilding." },
+  { title: "A Welcoming Room", body: "Hardcore where it counts, friendly everywhere else. Every level belongs here — beginners included." },
+  { title: "Established & Local", body: "A Pittsburgh staple run by Linda & Monty Webb, with the experience and community to match." },
+];
+---
+<section class="section section--alt" id="about">
+  <div class="container">
+    <p class="kicker">Why Webb's</p>
+    <h2>More Than a Gym</h2>
+    <div class="why__grid">
+      {points.map((p) => (
+        <article class="why__card">
+          <h3>{p.title}</h3>
+          <p>{p.body}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .why__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 36px; }
+  .why__card {
+    background: var(--charcoal);
+    border: 1px solid rgba(198,164,92,0.16);
+    border-radius: 12px; padding: 26px 22px;
+  }
+  .why__card h3 { color: var(--gold); }
+  .why__card p { color: var(--muted); font-size: 0.95rem; margin: 0; }
+  @media (max-width: 900px) { .why__grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 540px) { .why__grid { grid-template-columns: 1fr; } }
+</style>
