@@ -4,12 +4,12 @@ import { site } from '../data/site.ts';
 <section class="section" id="membership">
   <div class="container">
     <p class="kicker">Membership</p>
-    <h2>Join Webb's</h2>
+    <h2>Join <span class="accent">Webb's</span></h2>
     <p class="mem__lead">Annual memberships are month-to-month on a one-year contract — <strong>no initiation or enrollment fees</strong>, plus 4 free personal training sessions to get started.</p>
     <div class="mem__grid">
       {site.plans.map((plan) => (
         <article class={`mem__card${plan.highlight ? " is-featured" : ""}`}>
-          {plan.highlight && <span class="mem__badge">Best Value</span>}
+          {plan.highlight && <span class="mem__badge">Most Popular</span>}
           <h3>{plan.name}</h3>
           <p class="mem__price">{plan.price}<span>{plan.cadence}</span></p>
           <ul>
@@ -47,23 +47,24 @@ import { site } from '../data/site.ts';
   .mem__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
   .mem__card {
     position: relative;
+    display: flex; flex-direction: column;
     background: var(--charcoal-2);
     border: 1px solid rgba(198,164,92,0.18);
     border-radius: 14px; padding: 32px 26px; text-align: center;
   }
-  .mem__card.is-featured { border-color: var(--gold); transform: translateY(-6px); }
+  .mem__card.is-featured { border-color: var(--gold); }
   .mem__badge {
     position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
     background: var(--gold); color: var(--charcoal);
     font-family: "Inter"; font-weight: 600; font-size: 0.7rem; letter-spacing: 1px;
     text-transform: uppercase; padding: 4px 12px; border-radius: 20px;
   }
-  .mem__price { font-family: "Oswald"; font-size: 2.6rem; color: var(--cream); margin: 6px 0 18px; }
-  .mem__price span { font-size: 1rem; color: var(--muted); }
+  .mem__price { font-family: "Oswald"; font-weight: 700; font-size: 3.1rem; line-height: 1; color: var(--cream); margin: 10px 0 20px; }
+  .mem__price span { font-size: 1rem; font-weight: 400; color: var(--muted); }
   .mem__card ul { list-style: none; padding: 0; margin: 0 0 24px; }
   .mem__card li { color: var(--muted); padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.06); font-size: 0.92rem; }
-  .mem__cta { width: 100%; }
-  .mem__rates { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 56px; max-width: 760px; margin-top: 52px; }
+  .mem__cta { width: 100%; margin-top: auto; }
+  .mem__rates { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 56px; max-width: 760px; margin: 52px auto 0; }
   .mem__other-title { margin: 0 0 6px; color: var(--gold); font-size: 1rem; }
   .mem__other { list-style: none; padding: 0; margin: 0; }
   .mem__other li { display: flex; justify-content: space-between; gap: 16px; padding: 12px 2px; border-bottom: 1px solid rgba(198,164,92,0.14); }

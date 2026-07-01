@@ -1,9 +1,12 @@
 :root {
   --charcoal: #0c0a07;
   --charcoal-2: #161310;
+  --charcoal-3: #1e1a15;
   --gold: #c6a45c;
+  --gold-hi: #e2c988;
   --cream: #f4efe6;
   --muted: #b7ad9b;
+  --line: rgba(198, 164, 92, 0.18);
   --maxw: 1140px;
 }
 
@@ -32,18 +35,28 @@ h1, h2, h3 {
 h2 { font-size: clamp(1.9rem, 4vw, 3rem); }
 h3 { font-size: 1.2rem; }
 
+/* Accent word inside headings — kept plain (renders like the rest of the heading) */
+.accent {
+  font-family: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+  text-transform: inherit;
+  letter-spacing: inherit;
+  color: inherit;
+}
+
 .container { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
 .section { padding: 88px 0; }
 .section--alt { background: var(--charcoal-2); }
 
 .kicker {
-  font-family: "Inter", sans-serif;
-  font-weight: 600;
-  font-size: 0.72rem;
-  letter-spacing: 3px;
+  font-family: "Oswald", sans-serif;
+  font-weight: 500;
+  font-size: 0.74rem;
+  letter-spacing: 4px;
   text-transform: uppercase;
   color: var(--gold);
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
 
 .btn-gold {
@@ -57,7 +70,7 @@ h3 { font-size: 1.2rem; }
   border-radius: 6px;
   transition: transform .12s ease, background .12s ease;
 }
-.btn-gold:hover { transform: translateY(-2px); background: #d4b56e; }
+.btn-gold:hover { transform: translateY(-2px); background: var(--gold-hi); }
 
 @media (max-width: 700px) {
   .section { padding: 60px 0; }

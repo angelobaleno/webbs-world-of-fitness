@@ -11,12 +11,22 @@ const quotes = [
     name: "Regina Schultz",
     detail: "Member, 8 years",
   },
+  {
+    quote: "Webb's is an awesome gym with everything you need to get a great workout. The staff is always extremely friendly and the gym is very clean. Highly recommend to anyone looking for a non-intimidating, family-owned gym!",
+    name: "Jake Cuccia",
+    detail: "Google review",
+  },
+  {
+    quote: "Fantastic gym. Owner Monty is a great guy and everyone is very nice. The facility is super clean and there are a ton of weight machines — super welcoming for all levels of lifters.",
+    name: "Brendan McGuire",
+    detail: "Local Guide · Google review",
+  },
 ];
 ---
 <section class="section section--alt">
   <div class="container">
     <p class="kicker">What Members Say</p>
-    <h2>Trusted by Pittsburgh Lifters</h2>
+    <h2>Trusted by <span class="accent">Pittsburgh Lifters</span></h2>
     <p class="quotes__stat">Rated {site.rating}★ by {site.reviewCount}+ members · Family-owned for {site.yearsInBusiness} years</p>
     <div class="quotes">
       {quotes.map((q) => (
